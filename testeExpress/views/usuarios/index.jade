@@ -1,0 +1,30 @@
+extends ../layout
+
+block content
+    h1 Página de Usuários
+    br
+    br
+    br
+    a(href="/" title="home") voltar
+    br
+    br
+    a(href="/usuarios/cadastro" title="Cadastrar") Cadastrar
+    br
+    br
+    table(class="table well")
+        thead
+            tr
+                th ID
+                th Nome
+                th Login
+                th Senha
+                th Data
+        tbody
+            each usuario, index in usuarios
+                tr
+                    td #{index + 1}
+                    td #{usuario._id}
+                    td #{usuario.nome}
+                    td #{usuario.login}
+                    td #{usuario.dataCadastro}
+    

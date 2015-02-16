@@ -1,0 +1,25 @@
+extends ../layout
+
+block content
+    h1 Cadastro de Usuário
+    br
+    br
+    br
+    a(href="/" title="home") voltar
+    br
+    br
+    form(method="POST", action="/usuarios/cadastro")
+        .col-md-12
+            .col-md-6
+                .form
+                .form-group
+                    label.control-label Nome
+                    input(type="text", class="form-control", name="nome")
+                .form-group
+                    label.control-label Login
+                    input(type="text", class="form-control", name="login")
+                .form-group
+                    label.control-label Senha
+                    input(type="password", class="form-control", name="senha")
+                .form-group
+                    input(type="submit", value="Cadastrar", class="btn btn-success")
