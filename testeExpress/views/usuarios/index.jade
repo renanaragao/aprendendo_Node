@@ -27,4 +27,8 @@ block content
                     td #{usuario.nome}
                     td #{usuario.login}
                     td #{usuario.dataCadastro}
+                    td 
+                        a(href="/usuarios/cadastro/#{usuario._id}") editar
+                    td
+                        a(href="/usuarios/visualizar/#{usuario._id}") visualizar
     

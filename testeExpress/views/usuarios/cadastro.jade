@@ -12,14 +12,15 @@ block content
         .col-md-12
             .col-md-6
                 .form
+                input(type="hidden", value="#{_id}", name="id")
                 .form-group
                     label.control-label Nome
-                    input(type="text", class="form-control", name="nome")
+                    input(type="text", class="form-control", name="nome", value="#{nome || ''}")
                 .form-group
                     label.control-label Login
-                    input(type="text", class="form-control", name="login")
+                    input(type="text", class="form-control", name="login", value="#{login || ''}")
                 .form-group
                     label.control-label Senha
-                    input(type="password", class="form-control", name="senha")
+                    input(type="password", class="form-control", name="senha",  value="#{senha || ''}")
                 .form-group
                     input(type="submit", value="Cadastrar", class="btn btn-success")

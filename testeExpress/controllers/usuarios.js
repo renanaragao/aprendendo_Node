@@ -40,19 +40,87 @@ module.exports = function(app){
         },
         cadastrar: function(req, res){
         
-            var model = new Usuario(req.body);
+            var model;
             
-            model.save(function(err){
+            if(req.body.id){
+            
+                Usuario
+                .findById(req.body.id)
+                .exec(function(err, usuario){
+                
+                    if(err){
+                    
+                        console.log(err);
+                    }
+                    
+                    usuario.nome = req.body.nome;
+                    usuario.login = req.body.login;
+                    usuario.senha = req.body.senha;
+                    
+                    usuario.save(function(err){
+                    
+                        if(err){
+                    
+                            console.log(err);
+                            res.render('usuarios/cadastro');
+                        }
+                        
+                        res.redirect('/usuarios');
+                    
+                    });
+                    
+                });
+                
+            }else{
+                
+                model = new Usuario(req.body);
+                
+                model.save(function(err){
+            
+                  if(err){
+                
+                      console.log(err);
+                  }
+                
+                  res.redirect('/usuarios');
+            
+              });
+            }
+        },
+        editar: function(req, res){
+        
+            Usuario
+            .findById(req.params.id)
+            .exec(function(err, data){
             
                 if(err){
                 
                     console.log(err);
+                    res.render('usuarios/cadastro');
+                
                 }
                 
-                res.redirect('/usuarios');
+                res.render('usuarios/cadastro', data);
             
             });
         
+        },
+        visualizar: function(req, res){
+        
+            Usuario
+            .findById(req.params.id)
+            .exec(function(err, data){
+            
+                if(err){
+                
+                    console.log(err);
+                    res.render('usuarios/visualizar');
+                
+                }
+                
+                res.render('usuarios/visualizar', data);
+            
+            });
         }
     
     };

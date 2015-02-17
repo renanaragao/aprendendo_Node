@@ -1,0 +1,22 @@
+extends ../layout
+
+block content
+    h1 Visualização de Usuário
+    br
+    br
+    br
+    a(href="/" title="home") voltar
+    br
+    br
+    .col-md-12
+            .col-md-6
+                .form
+                input(type="hidden", value="#{_id}", name="id")
+                .form-group
+                    label.control-label Nome 
+                    br
+                    span #{nome || ''}
+                .form-group
+                    label.control-label Login
+                    br
+                    span #{login || ''}
